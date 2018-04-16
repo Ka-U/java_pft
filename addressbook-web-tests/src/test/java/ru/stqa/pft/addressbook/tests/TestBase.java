@@ -12,7 +12,7 @@ public class TestBase extends ApplicationManager {
     @BeforeMethod
     public void setUp() throws Exception {
         app.init();
-        app.wd.findElement(By.id("container")).click();
+        app.groupHelper.wd.findElement(By.id("container")).click();
     }
 
     @AfterMethod
