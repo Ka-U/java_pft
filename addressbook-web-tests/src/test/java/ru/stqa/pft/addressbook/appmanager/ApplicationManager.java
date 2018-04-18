@@ -11,9 +11,9 @@ public class ApplicationManager {
 
     FirefoxDriver wd;
 
-    private SessionHelper sessionHelper;
-    private NavigationHelper navigationHelper;
-    private GroupHelper groupHelper;
+    public SessionHelper sessionHelper;
+    public NavigationHelper navigationHelper;
+    public GroupHelper groupHelper;
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
@@ -30,7 +30,7 @@ public class ApplicationManager {
         wd.get("http://localhost/addressbook/group.php");
         groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
-        sessionHelper = new SessionHelper(wd)
+        sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
     }
 
