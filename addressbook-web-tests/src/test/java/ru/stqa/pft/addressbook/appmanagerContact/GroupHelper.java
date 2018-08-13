@@ -4,35 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.modelContact.ContactData;
 
-public class GroupHelper {
-    private FirefoxDriver wd;
+public class GroupHelper extends HelperBase {
 
     public GroupHelper(FirefoxDriver wd) {
-       this.wd = wd;
+
+        super(wd);
     }
 
-    public void submitContactCreation() {
-        wd.findElement(By.name("submit")).click();
-    }
+    public void submitContactCreation() { click(By.name("submit")); }
 
     public void fillContactForm(ContactData contactData) {
-        wd.findElement(By.name("firstname")).click();
-        wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-        wd.findElement(By.name("middlename")).click();
-        wd.findElement(By.name("middlename")).clear();
-        wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
-        wd.findElement(By.name("lastname")).click();
-        wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
+        type(By.name("firstname"), contactData.getFirstname());
+        type(By.name("middlename"), contactData.getMiddlename());
+        type(By.name("lastname"), contactData.getLastname());
     }
 
     public void initContactCreation() {
-        wd.findElement(By.name("add new")).click();
+        click(By.name("add new"));
     }
 
     public void selectFirst() {
-        wd.findElement(By.name("selected[]")).click();
+        click(By.name("selected[]"));
     }
 
     public void deleteSelected() {
