@@ -6,9 +6,11 @@ public class ContactDeletionTests extends TestBase {
 
 
     @Test
-    public void testContactDeletion() {
-        app.getGroupHelper().selectFirst();
-        app.getGroupHelper().deleteSelected();
+    public void testContactDeletion() throws InterruptedException {
+        app.getGroupHelper().selectContact();
+        app.getGroupHelper().deleteContact();
+        app.getNavigationHelper().closeAlert();
+        Thread.sleep(5000);
     }
 
 }
